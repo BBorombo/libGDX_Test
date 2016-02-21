@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.borombo.game.States.GameStateManager;
+import com.borombo.game.States.TestState;
 
 public class MyGdxGame extends ApplicationAdapter {
 	public final static int WHIDTH = 480;
@@ -15,13 +16,13 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	private GameStateManager gsm;
 	private SpriteBatch batch;
-	Texture img;
-	
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		gsm = new GameStateManager();
 		Gdx.gl.glClearColor(1, 0, 0, 1);
+		gsm.push(new TestState(gsm));
 	}
 
 	@Override
